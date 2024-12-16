@@ -1,1 +1,5 @@
 default: --publish-quiet
+
+smoke: --tags @smoke --publish-quiet
+unit: --tags @unit --format --publish-quiet
+homepage: --tags @homepage --publish-quiet
