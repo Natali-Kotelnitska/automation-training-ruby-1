@@ -6,12 +6,9 @@ When('I click the search button') do
   @homepage.click_search_button
 end
 
-Then('I should be redirected to the search results page') do
-  expect(page.current_url).to include('/search')
-end
-
 Then('I should see a list of results related to {string}') do |search_term|
-  expect(page).to have_content(search_term)
+  expect(search_results_page.results_present?).to be_truthy
+  expect(search_results_page.has_results_match?(search_term)).to be_truthy
 end
 
 Then('I should see a dropdown with suggestions related to {string}') do |query|

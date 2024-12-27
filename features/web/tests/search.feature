@@ -1,4 +1,5 @@
 @search
+
 Feature: Search functionality Testing
   Background:
     Given Navigate to home page
@@ -14,7 +15,6 @@ Feature: Search functionality Testing
       | фен               |
       | dyson airwrap     |
       | Apple Macbook Pro |
-      | a                 |
 
   Scenario: Verify autocomplete and clear button behavior
     When I type "iphone" into the search field
