@@ -7,6 +7,7 @@ module Web
       element :search_field, 'input.search-form__input'
       element :search_button, 'button.search-form__submit'
       element :clear_button, 'button.search-form__clear'
+      element :cart_icon_button, 'button.header-cart__button'
       elements :suggestion_items, 'ul.suggest-list li.search-suggest__item'
       element :empty_results_text, "div.search-nothing div h1"
 
@@ -17,6 +18,11 @@ module Web
 
       def click_search_button
         search_button.click
+      end
+
+      def search_for_product(product_name)
+        type_in_search_field(product_name)
+        click_search_button
       end
 
       def suggestions_match_query?(query)

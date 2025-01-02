@@ -8,6 +8,10 @@ module Web
       def wait_for_page_load
         has_goods_sections?
       end
+
+      def navigate_to_home_page
+        logo.click
+      end
     end
   end
 end

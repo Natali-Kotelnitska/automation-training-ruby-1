@@ -15,6 +15,11 @@ module Web
           item.text.downcase.include?(search_term.downcase)
         end
       end
+
+      def select_first_item
+        wait_until_search_result_items_visible
+        search_result_items.first.click
+      end
     end
   end
 end
