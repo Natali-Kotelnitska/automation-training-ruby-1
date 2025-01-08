@@ -11,14 +11,15 @@ module Web
       elements :cart_items, 'ul.cart-list > li.cart-list__item'
       elements :product_titles, '[data-testid="title"] .cart-product__title'
 
-      def item_in_cart?(product_name)
+      def verify_item_in_cart?(product_name)
         product_titles.any? { |title| title.text.strip == product_name }
       end
-
-      def remove_item
+      
+      def remove_item(product_name)
         wait_until_cart_items_visible
+        item_index = product_titles.find_index { |title| title.text.strip == product_name}
 
-        within(cart_items.first) do
+        within(cart_items[item_index]) do
           dropdown_menu_button.click
           delete_button.click
         end

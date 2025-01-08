@@ -1,6 +1,8 @@
 require 'capybara'
 require 'selenium-webdriver'
 require 'capybara/cucumber'
+require 'capybara/dsl'
+require 'rspec'
 require 'site_prism'
 require 'dotenv'
 

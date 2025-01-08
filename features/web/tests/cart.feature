@@ -8,13 +8,13 @@ Feature: Cart functionality testing
 
   @smoke
   Scenario: Verify adding an item to the cart
-    And I add the item to the cart
+    When I add the item to the cart
     Then I should see the item in the cart
 
-  Scenario: Verify removing an item from the cart
-    And I add the item to the cart
+  Scenario: Verify the ability to remove an item from the cart
+    When I add the item to the cart
     Then I should see the item in the cart
     When I remove the item from the cart
     And I navigate to home page
     And I go back to the cart
-    Then I should see the cart is empty
+    Then The cart should be empty
