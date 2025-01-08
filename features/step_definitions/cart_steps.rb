@@ -12,7 +12,6 @@ When('I add the item to the cart') do
 end
 
 Then('I should see the item in the cart') do
-
   expect(cart_page.cart_with_products).to be_visible
   expect(cart_page.cart_items.size).to be > 0
   expect(cart_page.verify_item_in_cart?(@product_title)).to be true
