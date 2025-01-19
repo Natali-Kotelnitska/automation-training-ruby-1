@@ -9,7 +9,6 @@ module Web
       element :min_price_input, 'input[formcontrolname="min"]'
       element :max_price_input, 'input[formcontrolname="max"]'
       element :price_filter_button, 'button.slider-filter__button'
-      elements :fltered_items, 'ul.catalog-grid li'
       elements :search_result_items, 'div.goods-tile__inner'
 
       def results_present?
@@ -30,7 +29,8 @@ module Web
       # Methods for filter functionality
       def apply_filter(filter_name, option_text)
         filter = find("div[data-filter-name='#{filter_name}']")
-        filter.find(".checkbox-filter__link[data-id='#{option_text}']").click
+        checkbox = filter.find(".checkbox-filter__link[data-id='#{option_text}']", visible: false)
+        checkbox.click
       end
 
       def apply_price_range(min_price, max_price)
