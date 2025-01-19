@@ -1,4 +1,4 @@
-@cart
+@cart @smoke
 
 Feature: Cart functionality testing
   Background:
@@ -6,7 +6,6 @@ Feature: Cart functionality testing
     When I search for "samsung" in the search field
     And I select the first item from the search results
 
-  @smoke
   Scenario: Verify adding an item to the cart
     When I add the item to the cart
     Then I should see the item in the cart
