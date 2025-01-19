@@ -10,6 +10,7 @@ module Web
       element :cart_icon_button, 'button.header-cart__button'
       elements :suggestion_items, 'ul.suggest-list li.search-suggest__item'
       element :empty_results_text, "div.search-nothing div h1"
+      element :pre_loader, ".preloader_type_element"
 
       def type_in_search_field(query)
         wait_until_search_field_visible
@@ -27,6 +28,10 @@ module Web
 
       def suggestions_match_query?(query)
         suggestion_items.all? { |item| item.text.include?(query) }
+      end
+
+      def wait_until_pre_loader_disappears
+        has_no_pre_loader?
       end
     end
   end
