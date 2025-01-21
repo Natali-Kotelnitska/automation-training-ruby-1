@@ -6,3 +6,4 @@ homepage: --tags @homepage --publish-quiet
 search: --tags @search --publish-quiet
 negative: --tags @negative --publish-quiet
 cart: --tags @cart --publish-quiet
+filters: --tags @filters --publish-quiet

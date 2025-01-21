@@ -1,7 +1,3 @@
-When('I search for {string} in the search field') do |search_term|
- @homepage.search_for_product(search_term)
-end
-
 When('I select the first item from the search results') do
   search_results_page.select_first_item
 end
