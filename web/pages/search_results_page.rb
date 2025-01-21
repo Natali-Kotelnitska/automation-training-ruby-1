@@ -38,9 +38,12 @@ module Web
         max_price_input.set(max_price)
       end
 
-      def verify_products_within_price_range?(min_price, max_price)
+      def click_price_filter_button
+        price_filter_button.click
         wait_until_pre_loader_disappears
+      end
 
+      def verify_products_within_price_range?(min_price, max_price)
         search_result_items.all? do |item|
           price_text = item.find('div.goods-tile__price span.goods-tile__price-value', wait: 10).text.strip
           price = price_text.gsub(/[^\d]/, '').to_i

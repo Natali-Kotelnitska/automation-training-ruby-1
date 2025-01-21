@@ -16,7 +16,7 @@ When('I set the minimum price of {int} UAH and a maximum price of {int} UAH') do
 end
 
 When('I click the {string} button') do |string|
-  search_results_page.price_filter_button.click
+  search_results_page.click_price_filter_button
 end
 
 Then('I should see search results priced between {int} UAH and {int} UAH') do |min_value, max_value|
