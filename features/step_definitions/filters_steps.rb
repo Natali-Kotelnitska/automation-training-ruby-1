@@ -7,8 +7,7 @@ When('I select the filter {string} with the option {string}') do |filter_name, o
 end
 
 Then('I should see search results filtered by {string}') do |expected_value|
-  expect(search_results_page).to have_content(expected_value)
-  expect(search_results_page.settings_selection_section).to have_text(expected_value)
+  search_results_page.verify_filtered_results(search_results_page, expected_value)
 end
 
 When('I set the minimum price of {int} UAH and a maximum price of {int} UAH') do |min_value, max_value|
