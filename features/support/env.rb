@@ -7,6 +7,7 @@ require 'site_prism'
 require 'dotenv'
 
 require_relative 'init_helper'
+require_relative 'logger_config'
 
 Dotenv.load
 
