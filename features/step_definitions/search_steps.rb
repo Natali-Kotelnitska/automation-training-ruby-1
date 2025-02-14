@@ -8,11 +8,11 @@ end
 
 Then('I should see a list of results related to {string}') do |search_term|
   expect(search_results_page.results_present?).to be_truthy
-  expect(search_results_page.has_results_match?(search_term)).to be_truthy
+  search_results_page.verify_results_contain(search_term)
 end
 
 Then('I should see a dropdown with suggestions related to {string}') do |query|
-  expect(@homepage.suggestions_match_query?(query)).to be true
+  @homepage.verify_suggestions_contain_query(query)
 end
 
 Then('the clear button should appear') do

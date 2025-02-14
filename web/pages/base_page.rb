@@ -3,6 +3,8 @@
 module Web
   module Pages
     class BasePage <SitePrism::Page
+      include VerificationHelper
+
       element :logo, 'a.header__logo'
       element :search_field, 'input.search-form__input'
       element :search_button, 'button.search-form__submit'
@@ -26,8 +28,9 @@ module Web
         click_search_button
       end
 
-      def suggestions_match_query?(query)
-        suggestion_items.all? { |item| item.text.include?(query) }
+      def verify_suggestions_contain_query(query)
+        actual_suggestions = suggestion_items.map(&:text)
+        verify_inclusion(actual_suggestions, query)
       end
 
       def wait_until_pre_loader_disappears
