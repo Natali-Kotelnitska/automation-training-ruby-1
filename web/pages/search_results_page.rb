@@ -22,7 +22,7 @@ module Web
 
       def verify_results_contain(search_term)
         actual_results_titles = search_result_items.map { |item| item.text.downcase}
-        verify_inclusion(actual_results_titles, search_term.downcase)
+        verify_array_include(actual_results_titles, search_term.downcase)
       end
 
       # Methods for filter functionality
@@ -51,8 +51,8 @@ module Web
       end
 
       def verify_filtered_results(page, expexted_value)
-        verify_inclusion(page.text, expexted_value)
-        verify_inclusion(page.settings_selection_section.text, expexted_value)
+        verify_array_include(page.text, expexted_value)
+        verify_array_include(page.settings_selection_section.text, expexted_value)
       end
     end
   end

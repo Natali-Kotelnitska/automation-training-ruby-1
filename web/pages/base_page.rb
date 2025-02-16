@@ -30,7 +30,7 @@ module Web
 
       def verify_suggestions_contain_query(query)
         actual_suggestions = suggestion_items.map(&:text)
-        verify_inclusion(actual_suggestions, query)
+        verify_array_include(actual_suggestions, query)
       end
 
       def wait_until_pre_loader_disappears

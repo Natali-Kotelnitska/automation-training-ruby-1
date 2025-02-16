@@ -3,12 +3,12 @@
 module VerificationHelper
   include RSpec::Matchers
 
-    def verify_object_equals(actual, expected, attribute = nil)
-      expect(actual).to eql(expected), "Data mismatch #{attribute} should be equal to #{expected} but it is #{actual}"
+    def verify_truthy(condition, message = 'Condition is false')
+      expect(condition).to be_truthy, message
     end
 
-    def verify_inclusion(actual, expected)
-      actual_check = Array(actual).any? { |item| item.include?(expected) }
-      expect(actual_check).to be_truthy, "Expected '#{actual}' to include '#{expected}', but it did not."
+    def verify_array_include(actual, to_include)
+      actual_check = Array(actual).any? { |item| item.include?(to_include) }
+      expect(actual_check).to be_truthy, "Expected '#{actual}' to include '#{to_include}', but it did not."
     end
 end
