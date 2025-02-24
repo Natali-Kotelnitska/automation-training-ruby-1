@@ -3,7 +3,7 @@
 module Web
   module Pages
     class ProductPage < BasePage
-      element :buy_button, 'button.buy-button'
+      element :buy_button, 'button.buy-button[aria-label="Купити"]'
       element :product_title, 'div.product-about h1'
 
       def get_product_name

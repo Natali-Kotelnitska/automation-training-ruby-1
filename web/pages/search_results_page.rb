@@ -15,15 +15,14 @@ module Web
         has_results_container?
       end
 
-      def has_results_match?(search_term)
-        search_result_items.any? do |item|
-          item.text.downcase.include?(search_term.downcase)
-        end
+      def select_first_item
+        wait_until_search_result_items_visible(wait: 20)
+        search_result_items.first.click
       end
 
-      def select_first_item
-        wait_until_search_result_items_visible
-        search_result_items.first.click
+      def verify_results_contain(search_term)
+        actual_results_titles = search_result_items.map { |item| item.text.downcase}
+        verify_array_include(actual_results_titles, search_term.downcase)
       end
 
       # Methods for filter functionality
@@ -49,6 +48,11 @@ module Web
           price = price_text.gsub(/[^\d]/, '').to_i
           price.between?(min_price,max_price)
         end
+      end
+
+      def verify_filtered_results(page, expexted_value)
+        verify_array_include(page.text, expexted_value)
+        verify_array_include(page.settings_selection_section.text, expexted_value)
       end
     end
   end
